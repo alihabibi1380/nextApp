@@ -1,9 +1,10 @@
 import React from "react";
 import PushMeButton from "./PushMeButton";
+import styles from "./ProductCard.module.css"
 
 const ProductCard = () => {
   return (
-    <div>
+    <div className={`${styles.card} mt-2`}>
       ProductCard
       <div>
         <PushMeButton/>

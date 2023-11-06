@@ -3,10 +3,13 @@ import React from "react";
 interface user {
   id: number;
   name: string;
+  email: string;
 }
 
 const UsersPage = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users", { cache : "no-store"});
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    cache: "no-store",
+  });
   const users: user[] = await res.json();
 
   return (
@@ -17,11 +20,23 @@ const UsersPage = async () => {
       <br />
       <div>{new Date().toLocaleTimeString()}</div>
       <br />
-      <div>
+      <table className="table table-bordred">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
         {users.map((user) => {
-          return <li key={user.id}>{user.name}</li>;
+          return (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          );
         })}
-      </div>
+      </table>
     </>
   );
 };
