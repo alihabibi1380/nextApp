@@ -1,10 +1,16 @@
 import React from "react";
 import UserTabel from "./userTabel";
 
+interface Props {
+  searchParams : {
+    sortOrder : string
+  }
+}
 
 
-const UsersPage = () => {
+const UsersPage = ({searchParams : {sortOrder}} : Props) => {
   
+  console.log(sortOrder);
 
   return (
     <>
@@ -14,7 +20,7 @@ const UsersPage = () => {
       <br />
       <div>{new Date().toLocaleTimeString()}</div>
       <br />
-      <UserTabel />
+      <UserTabel sortOrder={sortOrder}/>
     </>
   );
 };
